@@ -1,4 +1,4 @@
-module Preface where
+module Public.Preface.Preface where
 
 isEmpty : [a] -> Bool
 isEmpty xs = case xs of
@@ -44,8 +44,8 @@ tail xs = case xs of
 (#) : [a] -> Int -> Maybe a
 xs # n = case xs of
            []     -> Nothing
-           (h::t) -> if | n <= 0    -> Nothing
-                        | n == 1    -> Just h
+           (h::t) -> if | n < 0     -> Nothing
+                        | n == 0    -> Just h
                         | otherwise -> t # (n-1)
 
 iterate : (a -> a) -> a -> Int -> [a]
